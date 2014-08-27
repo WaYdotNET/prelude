@@ -5,6 +5,8 @@
 ;; requirement
 ;; (prelude-require-package 'parenface)
 (prelude-require-package 'nyan-mode)
+(prelude-require-package 'smex)
+(prelude-require-package 'flx-ido)
 (prelude-require-package 'highlight-indentation)
 (prelude-require-package 'smart-mode-line)
 (prelude-require-package 'find-temp-file)
@@ -22,6 +24,8 @@
 
 
 ;;; Code:
+;; (require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
 (setq inhibit-startup-message t)
 ;; impostiamo il tab di default a 2 caratteri
 (setq-default tab-width 2)
