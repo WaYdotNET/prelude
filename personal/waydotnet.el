@@ -21,6 +21,8 @@
 (prelude-require-package 'anaconda-mode)
 (prelude-require-package 'company-anaconda)
 (prelude-require-package 'pyenv-mode)
+(prelude-require-package 'pony-mode)
+(prelude-require-package 'web-mode)
 
 
 ;;; Code:
@@ -57,8 +59,8 @@
 
 
 ;; save/restore opened files and windows config
-(desktop-save-mode +1) ; 0 for off
-(desktop-read)
+;; (desktop-save-mode +1) ; 0 for off
+;; (desktop-read)
 ;; salviamo la posizione del cursore quando chiudo un buffer
 ;; in modo da ripristinarla
 (require 'saveplace)
@@ -89,7 +91,7 @@
 
 ;; python mode
 (add-hook 'python-mode-hook 'anaconda-mode)
-(add-to-list 'company-backends 'company-anaconda)
+;;(add-to-list 'company-backends 'company-anaconda)
 (pyenv-mode)
 
 ;; full screen toggle using command+[RET]
