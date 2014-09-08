@@ -23,6 +23,7 @@
 (prelude-require-package 'pyenv-mode)
 (prelude-require-package 'pony-mode)
 (prelude-require-package 'web-mode)
+(prelude-require-package 'python-django)
 
 
 ;;; Code:
