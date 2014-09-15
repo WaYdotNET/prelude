@@ -24,6 +24,8 @@
 (prelude-require-package 'pony-mode)
 (prelude-require-package 'web-mode)
 (prelude-require-package 'python-django)
+(prelude-require-package 'olivetti)
+(prelude-require-package 'neotree)
 
 
 ;;; Code:
