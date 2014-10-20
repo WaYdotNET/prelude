@@ -41,8 +41,10 @@
 (setq venv-location "/Volumes/home/works/gitlab/anfora/env/")
 
 (setq js2-highlight-level 3)
-;; (setq python-shell-virtualenv-path "/Volumes/home/works/gitlab/anfora/env/")
-;; (setq python-shell-interpreter "/Volumes/home/works/gitlab/anfora/env/bin/python")
+(prelude-require-package 'auto-highlight-symbol)
+
+;;; Code:
+
 ;; (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq inhibit-startup-message t)
