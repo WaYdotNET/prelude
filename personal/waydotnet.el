@@ -14,7 +14,7 @@
 (prelude-require-package 'ido-vertical-mode)
 (prelude-require-package 'workgroups2)
 (prelude-require-package 'project-explorer)
-(prelude-require-package 'rainbow-delimiters)
+;(prelude-require-package 'rainbow-delimiters)
 ;;(prelude-require-package 'ox-latex)
 (prelude-require-package 'visual-regexp)
 (prelude-require-package 'indent-guide)
@@ -26,6 +26,13 @@
 (prelude-require-package 'python-django)
 (prelude-require-package 'olivetti)
 (prelude-require-package 'neotree)
+(prelude-require-package 'company-path)
+(prelude-require-package 'flymake-jshint)
+(prelude-require-package 'flymake-jslint)
+(prelude-require-package 'flymake-json)
+(prelude-require-package 'js2-mode)
+(prelude-require-package 'js2-refactor)
+(prelude-require-package 'auto-highlight-symbol)
 
 
 ;;; Code:
@@ -178,8 +185,8 @@
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
-(require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+;; (require 'rainbow-delimiters)
+;; (global-rainbow-delimiters-mode)
 
 ;; visual-regexp
 (require 'visual-regexp)
