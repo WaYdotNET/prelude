@@ -14,8 +14,6 @@
 (prelude-require-package 'ido-vertical-mode)
 (prelude-require-package 'workgroups2)
 (prelude-require-package 'project-explorer)
-(prelude-require-package 'rainbow-delimiters)
-;;(prelude-require-package 'ox-latex)
 (prelude-require-package 'visual-regexp)
 (prelude-require-package 'indent-guide)
 (prelude-require-package 'anaconda-mode)
@@ -26,9 +24,25 @@
 (prelude-require-package 'python-django)
 (prelude-require-package 'olivetti)
 (prelude-require-package 'neotree)
+(prelude-require-package 'flymake-jshint)
+(prelude-require-package 'flymake-jslint)
+(prelude-require-package 'flymake-json)
+(prelude-require-package 'js2-mode)
+(prelude-require-package 'js2-refactor)
+(prelude-require-package 'ac-js2)
+(prelude-require-package 'virtualenvwrapper)
+(prelude-require-package 'auto-highlight-symbol)
 
+(global-auto-highlight-symbol-mode t)
 
-;;; Code:
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+(setq venv-location "/Volumes/home/works/gitlab/anfora/env/")
+
+(setq js2-highlight-level 3)
+;; (setq python-shell-virtualenv-path "/Volumes/home/works/gitlab/anfora/env/")
+;; (setq python-shell-interpreter "/Volumes/home/works/gitlab/anfora/env/bin/python")
 ;; (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq inhibit-startup-message t)
@@ -108,7 +122,7 @@
 (setq dired-dwim-target t)
 
 
-(set-frame-font "Source Code Pro-11")
+;; (set-frame-font "Source Code Pro-11")
 
 ;; Highlight Current Line
 (global-hl-line-mode +1)
@@ -178,8 +192,8 @@
 (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
-(require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+;; (require 'rainbow-delimiters)
+;; (global-rainbow-delimiters-mode)
 
 ;; visual-regexp
 (require 'visual-regexp)
