@@ -3,7 +3,7 @@
 ;; bypassiamo la schermata di benvenuto
 
 ;; requirement
-;; (prelude-require-package 'parenface)
+
 (prelude-require-package 'nyan-mode)
 (prelude-require-package 'smex)
 (prelude-require-package 'flx-ido)
@@ -22,7 +22,6 @@
 (prelude-require-package 'pony-mode)
 (prelude-require-package 'web-mode)
 (prelude-require-package 'python-django)
-(prelude-require-package 'olivetti)
 (prelude-require-package 'neotree)
 (prelude-require-package 'flymake-jshint)
 (prelude-require-package 'flymake-jslint)
@@ -32,6 +31,10 @@
 (prelude-require-package 'ac-js2)
 (prelude-require-package 'virtualenvwrapper)
 (prelude-require-package 'auto-highlight-symbol)
+(prelude-require-package 'tern)
+(prelude-require-package 'company-tern)
+(prelude-require-package 'helm-company)
+(prelude-require-package 'parenface)
 
 (global-auto-highlight-symbol-mode t)
 
@@ -40,8 +43,13 @@
 (venv-initialize-eshell) ;; if you want eshell support
 (setq venv-location "/Volumes/home/works/gitlab/anfora/env/")
 
+(require 'company)
+;; js
 (setq js2-highlight-level 3)
 (prelude-require-package 'auto-highlight-symbol)
+(add-to-list 'company-backends 'company-tern)
+
+
 
 ;;; Code:
 
@@ -51,7 +59,11 @@
       mac-command-modifier 'meta
       mac-option-modifier 'none)
 
-;; (require 'company)
+(eval-after-load 'company
+  '(progn
+     (define-key company-mode-map (kbd "C-:") 'helm-company)
+     (define-key company-active-map (kbd "C-:") 'helm-company)))
+
 (add-hook 'after-init-hook 'global-company-mode)
 (setq inhibit-startup-message t)
 ;; impostiamo il tab di default a 2 caratteri
@@ -84,12 +96,12 @@
 
 
 ;; save/restore opened files and windows config
-;; (desktop-save-mode +1) ; 0 for off
+(desktop-save-mode +1) ; 0 for off
 ;; (desktop-read)
 ;; salviamo la posizione del cursore quando chiudo un buffer
 ;; in modo da ripristinarla
-(require 'saveplace)
-(setq save-place-file (concat user-emacs-directory "saveplace"))
+;; (require 'saveplace)
+;; (setq save-place-file (concat user-emacs-directory "saveplace"))
 
 ;; change color of bracket, curly
 ;; (require 'parenface)
@@ -116,7 +128,7 @@
 
 ;; python mode
 (add-hook 'python-mode-hook 'anaconda-mode)
-;;(add-to-list 'company-backends 'company-anaconda)
+(add-to-list 'company-backends 'company-anaconda)
 (pyenv-mode)
 
 ;; full screen toggle using command+[RET]
@@ -176,7 +188,7 @@
 ;; preferisco il vertical !
 (ido-vertical-mode t)
 
-(require 'workgroups2)
+;; (require 'workgroups2)
 ;; autoload/autosave:
 ;; if you start Emacs as "emacs --daemon" - turn off autoloading of workgroups:
 (setq wg-use-default-session-file t)
@@ -193,12 +205,12 @@
 
 
 ;; uniquify buffer names
-(require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ; emacs 24.4 style ⁖ cat.png<dirName>
-(setq uniquify-buffer-name-style 'reverse)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
-(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+;; (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
+;; (setq uniquify-buffer-name-style 'post-forward-angle-brackets) ; emacs 24.4 style ⁖ cat.png<dirName>
+;; (setq uniquify-buffer-name-style 'reverse)
+;; (setq uniquify-separator "/")
+;; (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
+;; (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
 ;; (require 'rainbow-delimiters)
 ;; (global-rainbow-delimiters-mode)
@@ -217,12 +229,12 @@
 (indent-guide-global-mode)
 
 ;; change color of bracket, curly
-;; (require 'parenface)
-;; (eval-after-load 'parenface
-;;   (progn
-;;     (set-face-foreground 'parenface-paren-face "dark gray")
-;;     (set-face-foreground 'parenface-bracket-face "gray")
-;;     (set-face-foreground 'parenface-curly-face "gray")))
+(require 'parenface)
+(eval-after-load 'parenface
+  (progn
+    (set-face-foreground 'parenface-paren-face "dark gray")
+    (set-face-foreground 'parenface-bracket-face "gray")
+    (set-face-foreground 'parenface-curly-face "gray")))
 
 ;; org-mode
 ;; HACK: http://nickhigham.wordpress.com/2013/07/05/emacs-org-mode-version-8/
