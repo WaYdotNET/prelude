@@ -35,9 +35,9 @@
 (define-key my-keys-minor-mode-map (kbd "C-x C-t") 'find-temp-file)
 
 ;; ;; project-explorer
-;; (define-key my-keys-minor-mode-map (kbd "M-1") 'project-explorer-open)
+(define-key my-keys-minor-mode-map (kbd "M-1") 'project-explorer-open)
 ;; neotree
-(define-key my-keys-minor-mode-map (kbd "M-1") 'neotree-toggle)
+;; (define-key my-keys-minor-mode-map (kbd "M-1") 'neotree-toggle)
 
 ;; cambio il mapping di default di taglio (C-w)
 (define-key my-keys-minor-mode-map [remap kill-region] 'cut-line-or-region)

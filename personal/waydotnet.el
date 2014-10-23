@@ -22,12 +22,14 @@
 (prelude-require-package 'pony-mode)
 (prelude-require-package 'web-mode)
 (prelude-require-package 'python-django)
-(prelude-require-package 'neotree)
+;; (prelude-require-package 'neotree)
+(prelude-require-package 'project-explorer)
 (prelude-require-package 'flymake-jshint)
 (prelude-require-package 'flymake-jslint)
 (prelude-require-package 'flymake-json)
 (prelude-require-package 'js2-mode)
 (prelude-require-package 'js2-refactor)
+(prelude-require-package 'js-doc)
 (prelude-require-package 'ac-js2)
 (prelude-require-package 'virtualenvwrapper)
 (prelude-require-package 'auto-highlight-symbol)
@@ -49,6 +51,23 @@
 (prelude-require-package 'auto-highlight-symbol)
 (add-to-list 'company-backends 'company-tern)
 
+(require 'js-doc)
+;; javascript => http://melpa.milkbox.net/#/js2-refactor
+(require 'js2-refactor)
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
+ )
+(setq js-basic-indent 2)
+(setq-default js2-basic-indent 2)
+
+(setq-default js2-basic-offset 2)
+(setq-default js2-auto-indent-p t)
+(setq-default js2-cleanup-whitespace t)
+(setq-default js2-enter-indents-newline t)
+(setq-default js2-global-externs "jQuery $")
+(setq-default js2-indent-on-enter-key t)
+(setq-default js2-mode-indent-ignore-first-tab t)
 
 
 ;;; Code:
