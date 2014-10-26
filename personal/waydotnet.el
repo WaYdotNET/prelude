@@ -43,7 +43,10 @@
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells) ;; if you want interactive shell support
 (venv-initialize-eshell) ;; if you want eshell support
-(setq venv-location "/Volumes/home/works/gitlab/anfora/env/")
+(setenv "WORKON_HOME" "~/works/gitlab/env/") ;; default environment
+(setq venv-location '(
+                      "/Users/WaYdotNET/works/gitlab/anfora/source/anfora-env"
+                      )) ;; custom
 
 (require 'company)
 ;; js
