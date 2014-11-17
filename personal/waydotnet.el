@@ -37,15 +37,70 @@
 (prelude-require-package 'company-tern)
 (prelude-require-package 'helm-company)
 (prelude-require-package 'parenface)
+(prelude-require-package 'zencoding-mode)
 
 (global-auto-highlight-symbol-mode t)
+
+(custom-set-variables
+ '(js-indent-level 2)
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
+ '(css-indent-offset 2)
+ '(coffee-tab-width 2)
+ '(zencoding-indentation 2)
+ '(zencoding-preview-default nil)
+ '(zencoding-insert-flash-time 0.2))
+
+(eval-after-load 'web-mode
+  '(progn
+     (defun hbin-web-mode-defaults ()
+       (setq web-mode-markup-indent-offset 2)
+       (setq web-mode-css-indent-offset 2)
+       (setq web-mode-code-indent-offset 2)
+       (setq web-mode-indent-style 2)
+       (setq web-mode-style-padding 2)
+       (setq web-mode-script-padding 2)
+       (setq web-mode-block-padding 0)
+       (setq web-mode-comment-style 2)
+       ;; Auto complete
+       ;; (auto-complete-mode +1)
+       ;; Load snippets
+       (cond
+        ((string= web-mode-engine "django")
+         (yas-activate-extra-mode 'django-mode))
+        ((string= web-mode-engine "erb")
+         (yas-activate-extra-mode 'rhtml-mode)))
+       ;; Zencoding
+       (prelude-require-package 'zencoding-mode)
+       (require 'zencoding-mode)
+       (define-key zencoding-mode-keymap (kbd "C-j") nil)
+       (define-key zencoding-mode-keymap (kbd "<C-return>") nil)
+       (define-key zencoding-mode-keymap (kbd "C-c C-j") 'zencoding-expand-line)
+       (zencoding-mode 1)
+       ;; erb
+       (ruby-tools-mode +1)
+       (modify-syntax-entry ?$ "w")
+       (modify-syntax-entry ?@ "w")
+       (modify-syntax-entry ?? "w")
+       (modify-syntax-entry ?! "w")
+       (modify-syntax-entry ?: "."))
+     (setq hbin-web-mode-hook 'hbin-web-mode-defaults)
+     (add-hook 'web-mode-hook (lambda () (run-hooks 'hbin-web-mode-hook)))))
+
+
+(eval-after-load 'scss-mode
+  '(progn
+     (defun hbin-scss-mode-defaults ()
+       (flycheck-mode -1))
+     (setq hbin-scss-mode-hook 'hbin-scss-mode-defaults)
+     (add-hook 'scss-mode-hook (lambda () (run-hooks 'hbin-scss-mode-hook)))))
 
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells) ;; if you want interactive shell support
 (venv-initialize-eshell) ;; if you want eshell support
 (setenv "WORKON_HOME" "~/works/gitlab/env/") ;; default environment
 (setq venv-location '(
-                      "/Users/WaYdotNET/works/gitlab/anfora/source/anfora-env"
+                      "/Users/WaYdotNET/works/gitlab/anfora/app/anfora-env"
                       )) ;; custom
 
 (require 'company)
