@@ -167,33 +167,17 @@
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
-(require 'workgroups2)
-;; autoload/autosave:
-;; if you start Emacs as "emacs --daemon" - turn off autoloading of workgroups:
-(setq wg-use-default-session-file t)
+(global-whitespace-mode nil)
+
+
+;; (require 'workgroups2)
+;; ;; autoload/autosave:
+;; ;; if you start Emacs as "emacs --daemon" - turn off autoloading of workgroups:
+;; (setq wg-use-default-session-file t)
 
 
 ;; save/restore opened files and windows config
 (desktop-save-mode +1) ; 0 for off
-;; (desktop-read)
-;; salviamo la posizione del cursore quando chiudo un buffer
-;; in modo da ripristinarla
-;; (require 'saveplace)
-;; (setq save-place-file (concat user-emacs-directory "saveplace"))
-
-;; change color of bracket, curly
-;; (require 'parenface)
-;; (eval-after-load 'parenface
-;;   (progn
-;;     (set-face-foreground 'parenface-paren-face "dark gray")
-;;     (set-face-foreground 'parenface-bracket-face "gray")
-;;     (set-face-foreground 'parenface-curly-face "gray")))
-
-;; (add-hook 'lisp-mode-hook 'paren-face-add-keyword)
-;; ;; (add-hook 'js2-mode-hook 'paren-face-add-keyword)
-;; (add-hook 'python-mode-hook 'paren-face-add-keyword)
-;; (add-hook 'emacs-lisp-mode-hook 'paren-face-add-keyword)
-;; (add-hook 'emacs-program-mode-hook 'paren-face-add-keyword)
 
 ;; ASPELL !!!
 ;; $ sudo port -v selfupdate

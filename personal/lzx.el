@@ -29,5 +29,5 @@
  )
 (add-to-list 'mmm-mode-ext-classes-alist '(nxml-mode nil lzx))
 ;; Setup/Activation
-(provide 'lzx)ù
+(provide 'lzx)
 ;;; lzx.el ends here
