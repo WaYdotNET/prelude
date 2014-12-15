@@ -39,6 +39,7 @@
 (prelude-require-package 'parenface)
 (prelude-require-package 'zencoding-mode)
 (prelude-require-package 'mmm-mode)
+(prelude-require-package 'sos)
 
 (global-auto-highlight-symbol-mode t)
 
