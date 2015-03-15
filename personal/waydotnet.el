@@ -333,16 +333,16 @@
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 ;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
 
-(require 'rlaszlo-mode (concat prelude-personal-dir  "/" "rlaszlo-mode.el"))
-(require 'rlaszlo)
-(add-to-list 'auto-mode-alist '("\\.rlzx" . rlaszlo-mode))
+;;(require 'rlaszlo-mode (concat prelude-personal-dir  "/" "rlaszlo-mode.el"))
+;;(require 'rlaszlo)
+;;(add-to-list 'auto-mode-alist '("\\.rlzx" . rlaszlo-mode))
 
-;; OPENLASZLO
-(setq auto-mode-alist
-      (cons '("\\.\\(lzx\\|dbk\\|xml\\|xsl\\|xslt\\|rng\\)\\'" . nxml-mode)
-            auto-mode-alist))
-;; personl Openlaszlo
-(require 'lzx (concat prelude-personal-dir "/" "lzx.el"))
+;;;; OPENLASZLO
+;;(setq auto-mode-alist
+;;      (cons '("\\.\\(lzx\\|dbk\\|xml\\|xsl\\|xslt\\|rng\\)\\'" . nxml-mode)
+;;            auto-mode-alist))
+;;;; personl Openlaszlo
+;;(require 'lzx (concat prelude-personal-dir "/" "lzx.el"))
 
 
 (provide 'waydotnet)
