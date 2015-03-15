@@ -1,6 +1,6 @@
 ;;; prelude-programming.el --- Emacs Prelude: prog-mode configuration
 ;;
-;; Copyright © 2011-2014 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -81,9 +81,6 @@ This functions should be added to the hooks of major modes for programming."
 
 (add-hook 'prog-mode-hook (lambda ()
                             (run-hooks 'prelude-prog-mode-hook)))
-
-(when (version<= "24.4" emacs-version)
-  (add-hook 'magit-status-mode-hook (lambda () (magit-filenotify-mode 1))))
 
 ;; enable on-the-fly syntax checking
 (if (fboundp 'global-flycheck-mode)
